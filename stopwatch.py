@@ -88,6 +88,10 @@ def main(stdscr):
         stdscr.clear()
         height, width = stdscr.getmaxyx()
 
+        # Display the current time in the upper right corner
+        current_time_str = time.strftime('%H:%M:%S')
+        stdscr.addstr(0, width - len(current_time_str) - 1, current_time_str)
+
         # Display the elapsed time
         elapsed_time = time.time() - start_time if running else elapsed_time
         minutes = int(elapsed_time // 60)
@@ -98,6 +102,10 @@ def main(stdscr):
         x_offset = (width - 7 * len(elapsed_str)) // 2
         for i, char in enumerate(elapsed_str):
             draw_large_digit(stdscr, char, height // 2 - 2, x_offset + i * 7)
+
+        # Display instructions at the bottom
+        instructions = "Press SPACE to start/stop, 'c' to clear, 'q' to quit"
+        stdscr.addstr(height - 1, (width - len(instructions)) // 2, instructions)
 
         # Refresh the screen
         stdscr.refresh()
@@ -111,7 +119,7 @@ def main(stdscr):
             else:
                 running = True
                 start_time = time.time() - elapsed_time
-        elif key == ord('r'):  # 'r' to reset
+        elif key == ord('c'):  # 'c' to clear
             running = False
             elapsed_time = 0
         elif key == ord('q'):  # 'q' to quit
