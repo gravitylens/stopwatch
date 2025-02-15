@@ -94,8 +94,8 @@ def main(stdscr):
         current_date_str = time.strftime('%A, %B %d, %Y')
         stdscr.addstr(0, 0, current_date_str)
 
-        # Display the current time in the upper right corner
-        current_time_str = time.strftime('%H:%M:%S')
+        # Display the current time in the upper right corner (12-hour format with AM/PM, no leading zeros)
+        current_time_str = time.strftime('%I:%M:%S %p').lstrip('0')
         stdscr.addstr(0, width - len(current_time_str) - 1, current_time_str)
 
         # Display the elapsed time
