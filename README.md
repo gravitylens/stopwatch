@@ -1,6 +1,6 @@
 # Stopwatch
 
-This is a terminal-based stopwatch application written in Python. It displays the elapsed time in the terminal using large digits. The spacebar starts and stops the timer, 'r' resets the timer to zero, and 'q' quits the application.
+This is a terminal-based stopwatch application written in Python. It displays the elapsed time in the terminal using large digits. The spacebar starts and stops the timer, 'c' clears the timer, 'p' toggles the display of past times, and 'q' quits the application.
 
 ## Requirements
 
@@ -27,7 +27,7 @@ To compile the application into a standalone executable, follow these steps:
 
 2. Use `PyInstaller` to create the executable:
    ```sh
-   pyinstaller --onefile /Users/jason/Coding\ Projects/Stopwatch/stopwatch.py
+   pyinstaller --onefile stopwatch.py
    ```
 
 3. The executable will be created in the `dist` directory.
@@ -35,5 +35,6 @@ To compile the application into a standalone executable, follow these steps:
 ## Usage
 
 - Press the spacebar to start and stop the timer.
-- Press 'r' to reset the timer to zero.
+- Press 'c' to clear the timer.
+- Press 'p' to toggle the display of past times.
 - Press 'q' to quit the application.
